@@ -6,7 +6,9 @@ const app = express();
 
 // In production, lock CORS to your deployed frontend(s) via CLIENT_URL
 // (comma-separated). With no CLIENT_URL set (local dev), allow all origins.
-const allowed = process.env.CLIENT_URL ? process.env.CLIENT_URL.split(",") : true;
+const allowed = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(",")
+  : ["https://admin-penal-sand.vercel.app"];
 app.use(cors({ origin: allowed, credentials: true }));
 app.use(express.json());
 
